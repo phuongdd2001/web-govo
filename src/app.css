@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.page-default h3 {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 600;
+}
+
+.page-default h4 {
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 500;
+}
+
+.page-default p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.page-default p:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.page-default ul {
+    padding-left: 20px;
+}
+
+.page-default ul li {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.page-default .des a {
+    text-decoration: underline;
+}
+
+.page-default .des a:hover {
+    color: rgba(241, 117, 34, 1);
+}
