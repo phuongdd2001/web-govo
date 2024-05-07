@@ -42,3 +42,35 @@
 .page-default .des a:hover {
     color: rgba(241, 117, 34, 1);
 }
+
+@media not all and (min-width: 640px) {
+    .page-default h3 {
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+    .page-default h4 {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .page-default p {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .page-default p:not(:last-child) {
+        margin-bottom: 8px;
+    }
+    
+    .page-default ul {
+        padding-left: 20px;
+    }
+
+    .page-default ul li {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+    }
+}

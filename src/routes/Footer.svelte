@@ -1,16 +1,11 @@
 <script lang="ts">
+  import { page } from "$app/stores";
+  import { srcollToId } from "$lib/core/data";
   import { Menu } from "$lib/core/data/data";
 
   let menu = Menu;
   let email = "contact@govo.tech";
 
-  function scrollIntoView({ target }: any) {
-		const el = document.querySelector(target.getAttribute('href'));
-		if (!el) return;
-    el.scrollIntoView({
-      behavior: 'smooth'
-    });
-  }
 </script>
 
 <footer>
@@ -120,7 +115,7 @@
                 <li>
                   <a
                   href="#{item.link}"
-                  on:click|preventDefault={scrollIntoView}
+                    on:click|preventDefault={() => {srcollToId(item.link, $page.url.pathname)}}
                     class="leading-[24px] text-black text-[16px] cursor-pointer font-medium flex items-center gap-x-[10px] duration-300 ease-in-out item-link-footer max-sm:text-[9px] max-sm:leading-[13.5px] max-sm:gap-x-0"
                   >
                     <img

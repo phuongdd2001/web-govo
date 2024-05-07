@@ -1,17 +1,11 @@
 <script lang="ts">
+  import { page } from "$app/stores";
+  import { srcollToId } from "$lib/core/data";
   import { Menu } from "$lib/core/data/data";
 
   let menu = Menu;
   let openMenuMobile = false;
 
-  function scrollIntoView({ target }: any) {
-    openMenuMobile = false;
-		const el = document.querySelector(target.getAttribute('href'));
-		if (!el) return;
-    el.scrollIntoView({
-      behavior: 'smooth'
-    });
-  }
 </script>
 
 <header id="header" class="max-lg:h-[20px]">
@@ -48,7 +42,7 @@
               <li class="nav-item">
                 <a
                 href="#{item.link}"
-                on:click|preventDefault={scrollIntoView}
+                  on:click|preventDefault={() => { openMenuMobile = false;; srcollToId(item.link, $page.url.pathname)}}
                   class="leading-[44px] text-white text-lg font-medium cursor-pointer"
                   >{item.title}
                 </a>
@@ -73,7 +67,7 @@
         <li class="nav-item">
           <a
           href="#{item.link}"
-          on:click|preventDefault={scrollIntoView}
+            on:click|preventDefault={() => { openMenuMobile = false;; srcollToId(item.link, $page.url.pathname)}}
             class="leading-[24px] text-white text-[16px] font-medium cursor-pointer"
             >{ item.title }
           </a>
