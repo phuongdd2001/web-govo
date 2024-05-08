@@ -2,6 +2,7 @@
   import type { ItemOutstanding, ItemProduct, Partner, User } from "$lib/core/data";
   import { Outstanding, Partners, Products, Users } from "$lib/core/data/data";
   import TitleHome from "./TitleHome.svelte";
+  import CountUp from "./CountUp.svelte";
 
   const outstanding: ItemOutstanding[] = Outstanding;
   const products: ItemProduct[] = Products;
@@ -17,7 +18,7 @@
     alt="Banner govo Vietnam"
     title="Banner govo Vietnam"
   />
-</div>
+</div> 
 <div
   class="relative before:bg-[url('src/lib/images/bg_product1.png')] before:bg-no-repeat before:w-[389px] before:h-[2007px] before:absolute before:bottom-[-20%] before:right-0 before:z-[-1] before:bg-bottom-left max-lg:before:bottom-0 max-lg:before:top-[12%] max-lg:before:bg-[url('src/lib/images/bg_mobie_2.png')] max-lg:before:w-[86px] max-lg:before:h-[405px]"
 >
@@ -28,9 +29,9 @@
     <div class="container mx-auto px-[15px]">
       <TitleHome title="Outstanding" />
       <div class="mt-[96px] max-sm:mt-[18px] max-lg:mt-[48px]">
-        <div class="flex items-center justify-around">
+        <div class="grid-cols-3 grid">
           {#each outstanding as item}
-            <div class="text-center px-[86px] max-lg:px-[20px]">
+            <div class="flex flex-col items-center">
               <img
                 src={item.image}
                 alt="Banner govo Vietnam"
@@ -39,11 +40,13 @@
                 height="165"
                 class="max-sm:w-[45px] max-sm:h-[45px] max-lg:w-[90px] max-lg:h-[90px]"
               />
-              <p
-                class="text-black font-semibold text-[64px] leading-[96px] inline-flex max-sm:text-[18px] max-sm:leading-[27px] max-lg:text-[32px] max-lg:leading-[48px]"
+              <div
+                class=" text-black font-semibold text-[64px] leading-[96px] inline-flex 
+                max-sm:text-[18px] max-sm:leading-[27px] max-lg:text-[32px] max-lg:leading-[48px]"
               >
-                <span> {item.total}</span><span> {item.unit}</span>
-              </p>
+              <CountUp totalCount={item.total}/>
+                <span> {item.unit}</span>
+              </div>
               <p
                 class="text-[#808080] font-medium text-[32px] leading-[48px] max-sm:text-[12px] max-sm:leading-[18px] max-lg:text-[20px] max-lg:leading-[28px]"
               >
