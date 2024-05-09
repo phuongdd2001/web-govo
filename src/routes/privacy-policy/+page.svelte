@@ -1,22 +1,13 @@
 <script lang="ts">
-  import type { PrivacyPolicy } from "$lib/core/data";
+  import { getPrivacyPolicies } from "$lib/core/api/store";
   import { onMount } from "svelte";
-  import { writable } from "svelte/store";
 
 
-//   const privacyPolicy = writable<PrivacyPolicy[]>([]);
-    let privacyPolicy: any;
+  let privacyPolicy: any;
 
   onMount(async () => {
-    const response = await fetch(
-      "https://cms.govo.tech/api/privacy-policies?populate=deep",
-      {
-        method: "GET",
-      }
-    );
-    const data = await response.json();
-    // privacyPolicy.set(data.data[0].attributes);
-    privacyPolicy = data.data[0].attributes;
+    const res = await getPrivacyPolicies();
+    privacyPolicy = res.data[0].attributes;
   });
 </script>
 
